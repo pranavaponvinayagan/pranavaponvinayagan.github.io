@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Pranava Karthekeyan Ponvinayagan</title>
+<meta name="description" content="Hardware and embedded projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Pranava Karthekeyan Ponvinayagan<span>.</span></a>
+    <nav class="main" aria-label="Main">
+      <input type="checkbox" id="navtoggle" aria-label="Toggle menu">
+      <label for="navtoggle" class="burger" aria-hidden="true">&#9776;</label>
+      <ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="projects.html" aria-current="page">Projects</a></li>
+<li><a href="goals.html">Career Goals</a></li>
+<li><a href="resume.html">Resume</a></li>
+<li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Portfolio</span>
+    <h1>Projects</h1>
+    <p class="lead">Each project page covers the problem, what I built, and how it turned out.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="cards">
+<article class="card"><div class="thumb"><img src="assets/emg-board.png" alt="3D render of the EMG acquisition module" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><svg class="diagram" style="display:none;color:var(--muted)" viewBox="0 0 770 262" role="img" aria-label="EMG module signal path" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor" style="color:var(--muted)"/></marker></defs><rect class="box" x="20" y="25" width="160" height="62" rx="8"/><text x="100.0" y="51.0" text-anchor="middle" font-size="14" font-weight="600">Electrodes</text><text class="small" x="100.0" y="69.0" text-anchor="middle">surface EMG</text><line class="line" x1="180" y1="56.0" x2="210" y2="56.0" marker-end="url(#ah)"/><rect class="box" x="210" y="25" width="160" height="62" rx="8"/><text x="290.0" y="51.0" text-anchor="middle" font-size="14" font-weight="600">Input protection</text><text class="small" x="290.0" y="69.0" text-anchor="middle">clamps + blanking</text><line class="line" x1="370" y1="56.0" x2="400" y2="56.0" marker-end="url(#ah)"/><rect class="hl" x="400" y="25" width="160" height="62" rx="8"/><text x="480.0" y="51.0" text-anchor="middle" font-size="14" font-weight="600">Differential amp</text><text class="small" x="480.0" y="69.0" text-anchor="middle">rejects common noise</text><line class="line" x1="560" y1="56.0" x2="590" y2="56.0" marker-end="url(#ah)"/><rect class="box" x="590" y="25" width="160" height="62" rx="8"/><text x="670.0" y="51.0" text-anchor="middle" font-size="14" font-weight="600">Filtering</text><text class="small" x="670.0" y="69.0" text-anchor="middle">band-pass + notch</text><rect class="hl" x="20" y="155" width="160" height="62" rx="8"/><text x="100.0" y="181.0" text-anchor="middle" font-size="14" font-weight="600">Adjustable gain</text><text class="small" x="100.0" y="199.0" text-anchor="middle">digitally set</text><line class="line" x1="180" y1="186.0" x2="210" y2="186.0" marker-end="url(#ah)"/><rect class="box" x="210" y="155" width="160" height="62" rx="8"/><text x="290.0" y="181.0" text-anchor="middle" font-size="14" font-weight="600">Level shifter</text><text class="small" x="290.0" y="199.0" text-anchor="middle">into ADC range</text><line class="line" x1="370" y1="186.0" x2="400" y2="186.0" marker-end="url(#ah)"/><rect class="box" x="400" y="155" width="160" height="62" rx="8" style="stroke-dasharray:5 4"/><text x="480.0" y="181.0" text-anchor="middle" font-size="14" font-weight="600">ESP32</text><text class="small" x="480.0" y="199.0" text-anchor="middle">planned</text><line class="line" x1="560" y1="186.0" x2="590" y2="186.0" marker-end="url(#ah)"/><rect class="box" x="590" y="155" width="160" height="62" rx="8" style="stroke-dasharray:5 4"/><text x="670.0" y="181.0" text-anchor="middle" font-size="14" font-weight="600">Stream to PC</text><text class="small" x="670.0" y="199.0" text-anchor="middle">planned</text><path class="line" d="M670 87 L670 121 L100 121 L100 155" marker-end="url(#ah)"/><text class="small" x="20" y="250">Signal path of the single-channel EMG acquisition module</text></svg></div><div class="body"><h3>Single-Channel EMG Acquisition Module</h3><p class="org">Personal &middot; ECE 1100 Discovery Project</p><ul class="tags"><li>Analog Front-End</li><li>PCB Design</li><li>Circuit Design</li></ul><p>Standalone board for capturing clean muscle signals outside the lab. Designed the input protection, differential amplifier, filtering, and gain stages, with ESP32 firmware as the next stage.</p><a class="more" href="projects/emg-module.html">Learn more &rarr;</a></div></article>
+<article class="card"><div class="thumb"><img src="assets/tms-emg-gui.jpeg" alt="BiStimComm and TrignoStream module GUIs" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><svg class="diagram" style="display:none;color:var(--muted)" viewBox="0 0 690 250" role="img" aria-label="TMS-EMG acquisition and control system diagram" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor" style="color:var(--muted)"/></marker></defs><rect class="box" x="20" y="30" width="170" height="62" rx="8"/><text x="105.0" y="55.0" text-anchor="middle" font-size="14" font-weight="600">Delsys Trigno</text><text class="small" x="105.0" y="73.0" text-anchor="middle">16-ch wireless EMG</text><rect class="hl" x="240" y="30" width="190" height="62" rx="8"/><text x="335.0" y="55.0" text-anchor="middle" font-size="14" font-weight="600">Listener thread</text><text class="small" x="335.0" y="73.0" text-anchor="middle">dual-socket TCP</text><rect class="box" x="480" y="30" width="190" height="62" rx="8"/><text x="575.0" y="55.0" text-anchor="middle" font-size="14" font-weight="600">Real-time loop</text><text class="small" x="575.0" y="73.0" text-anchor="middle">RTXI on Xenomai</text><rect class="hl" x="240" y="140" width="190" height="62" rx="8"/><text x="335.0" y="165.0" text-anchor="middle" font-size="14" font-weight="600">Serial plugin</text><text class="small" x="335.0" y="183.0" text-anchor="middle">state machine + checksum</text><rect class="box" x="20" y="140" width="170" height="62" rx="8"/><text x="105.0" y="165.0" text-anchor="middle" font-size="14" font-weight="600">Magstim BiStim²</text><text class="small" x="105.0" y="183.0" text-anchor="middle">paired-pulse TMS</text><line class="line" x1="190" y1="61" x2="240" y2="61" marker-end="url(#ah)"/><line class="line" x1="430" y1="61" x2="480" y2="61" marker-end="url(#ah)"/><path class="line" d="M575 92 L575 171 L430 171" marker-end="url(#ah)"/><line class="line" x1="240" y1="171" x2="190" y2="171" marker-end="url(#ah)"/><text class="small" x="20" y="235">EMG streams in through a wait-free buffer; TMS is fired programmatically over serial</text></svg></div><div class="body"><h3>Real-Time TMS-EMG Acquisition &amp; Control System</h3><p class="org">Movement Neuroscience Lab &middot; Northeastern</p><ul class="tags"><li>Device Drivers</li><li>Serial + TCP Protocols</li><li>Real-Time C++</li></ul><p>Real-time control and acquisition for live TMS experiments. Developed a checksummed serial driver for a paired-pulse TMS stimulator and a lag-free TCP pipeline for 16-channel wireless EMG on Xenomai Linux.</p><a class="more" href="projects/tms-emg.html">Learn more &rarr;</a></div></article>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div>&copy; 2026 Pranava Karthekeyan Ponvinayagan &middot; Electrical Engineering @ Georgia Tech</div>
+    <div>
+      <a href="mailto:pponvinayagan3@gatech.edu">Email</a>
+      <a href="https://www.linkedin.com/in/pranava-ponvinayagan/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/PranavaKP30" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
