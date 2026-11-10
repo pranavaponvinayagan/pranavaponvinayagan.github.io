@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMG Acquisition Module | Pranava Karthekeyan Ponvinayagan</title>
+<meta name="description" content="ECE 1100 Discovery Project: single-channel EMG acquisition module.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Pranava Karthekeyan Ponvinayagan<span>.</span></a>
+    <nav class="main" aria-label="Main">
+      <input type="checkbox" id="navtoggle" aria-label="Toggle menu">
+      <label for="navtoggle" class="burger" aria-hidden="true">&#9776;</label>
+      <ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../about.html">About</a></li>
+<li><a href="../projects.html" aria-current="page">Projects</a></li>
+<li><a href="../goals.html">Career Goals</a></li>
+<li><a href="../resume.html">Resume</a></li>
+<li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+<section>
+  <div class="wrap prose">
+    <span class="eyebrow">Personal &middot; ECE 1100 Discovery Project</span>
+    <h1>Single-Channel EMG Acquisition Module</h1>
+    <p class="meta">Personal project &middot; Fall 2026 &middot; Analog front end, PCB design</p>
+    <p class="lead">A compact, standalone board that picks up muscle signals from surface electrodes and cleans them up through a multi-stage analog front end, ready to be digitized by an ESP32.</p>
+
+    <figure><div class="frame"><img src="../assets/emg-board.png" alt="3D render of the EMG acquisition module" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'todo',textContent:'Add image: ../assets/emg-board.png'}))"></div><figcaption>3D render of the EMG module.</figcaption></figure>
+
+    <h2>The Problem</h2>
+    <p>When a muscle contracts, it produces an electrical signal you can measure on the skin, but that signal is only a few millivolts at most and sits under noise from power lines, movement, and nearby electronics. Lab EMG systems handle this well, but they're expensive and tied to a desk. I wanted to find out what it takes to build a small board that captures a clean muscle signal, and to use it as a hands-on way to learn analog front-end design.</p>
+
+    <h2>The Solution</h2>
+    <p>Most biosignal front ends follow the same idea: protect the input, amplify the difference between two electrodes, filter out everything that isn't the signal, and hand a clean voltage to the ADC. I designed the board around those stages.</p>
+    <figure><div class="frame"><svg class="diagram" viewBox="0 0 770 262" role="img" aria-label="EMG module signal path" xmlns="http://www.w3.org/2000/svg" style="color:var(--muted)"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor" style="color:var(--muted)"/></marker></defs><rect class="box" x="20" y="25" width="160" height="62" rx="8"/><text x="100.0" y="51.0" text-anchor="middle" font-size="14" font-weight="600">Electrodes</text><text class="small" x="100.0" y="69.0" text-anchor="middle">surface EMG</text><line class="line" x1="180" y1="56.0" x2="210" y2="56.0" marker-end="url(#ah)"/><rect class="box" x="210" y="25" width="160" height="62" rx="8"/><text x="290.0" y="51.0" text-anchor="middle" font-size="14" font-weight="600">Input protection</text><text class="small" x="290.0" y="69.0" text-anchor="middle">clamps + blanking</text><line class="line" x1="370" y1="56.0" x2="400" y2="56.0" marker-end="url(#ah)"/><rect class="hl" x="400" y="25" width="160" height="62" rx="8"/><text x="480.0" y="51.0" text-anchor="middle" font-size="14" font-weight="600">Differential amp</text><text class="small" x="480.0" y="69.0" text-anchor="middle">rejects common noise</text><line class="line" x1="560" y1="56.0" x2="590" y2="56.0" marker-end="url(#ah)"/><rect class="box" x="590" y="25" width="160" height="62" rx="8"/><text x="670.0" y="51.0" text-anchor="middle" font-size="14" font-weight="600">Filtering</text><text class="small" x="670.0" y="69.0" text-anchor="middle">band-pass + notch</text><rect class="hl" x="20" y="155" width="160" height="62" rx="8"/><text x="100.0" y="181.0" text-anchor="middle" font-size="14" font-weight="600">Adjustable gain</text><text class="small" x="100.0" y="199.0" text-anchor="middle">digitally set</text><line class="line" x1="180" y1="186.0" x2="210" y2="186.0" marker-end="url(#ah)"/><rect class="box" x="210" y="155" width="160" height="62" rx="8"/><text x="290.0" y="181.0" text-anchor="middle" font-size="14" font-weight="600">Level shifter</text><text class="small" x="290.0" y="199.0" text-anchor="middle">into ADC range</text><line class="line" x1="370" y1="186.0" x2="400" y2="186.0" marker-end="url(#ah)"/><rect class="box" x="400" y="155" width="160" height="62" rx="8" style="stroke-dasharray:5 4"/><text x="480.0" y="181.0" text-anchor="middle" font-size="14" font-weight="600">ESP32</text><text class="small" x="480.0" y="199.0" text-anchor="middle">planned</text><line class="line" x1="560" y1="186.0" x2="590" y2="186.0" marker-end="url(#ah)"/><rect class="box" x="590" y="155" width="160" height="62" rx="8" style="stroke-dasharray:5 4"/><text x="670.0" y="181.0" text-anchor="middle" font-size="14" font-weight="600">Stream to PC</text><text class="small" x="670.0" y="199.0" text-anchor="middle">planned</text><path class="line" d="M670 87 L670 121 L100 121 L100 155" marker-end="url(#ah)"/><text class="small" x="20" y="250">Signal path of the single-channel EMG acquisition module. Dashed stages are planned.</text></svg></div><figcaption>Signal path from the electrodes to the ADC, with the digital stages coming next.</figcaption></figure>
+    <ul>
+      <li><b>Input protection:</b> series resistors and clamp diodes protect the front end from static and voltage spikes, and an analog switch can disconnect the inputs during electrical stimulation so artifacts don't saturate the amplifier.</li>
+      <li><b>Analog front end:</b> a differential amplifier boosts the muscle signal and rejects noise common to both electrodes. Filtering then limits it to the EMG band and removes 60 Hz power-line noise.</li>
+      <li><b>Adjustable gain and level shifting:</b> a digitally programmable gain stage adjusts amplification for different muscles, and a level shifter moves the signal into the ESP32's ADC range.</li>
+      <li><b>Next stage:</b> ESP32 firmware to sample the conditioned signal and stream it to a laptop for live plotting.</li>
+    </ul>
+
+    <figure><div class="frame"><img src="../assets/emg-schematic.png" alt="Schematic of the EMG acquisition module" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'todo',textContent:'Add image: ../assets/emg-schematic.png'}))"></div><figcaption>Schematic.</figcaption></figure>
+
+    <p>On the PCB, I kept the analog section away from the digital and power circuitry and used solid ground pours to keep noise down. The biggest lesson was how much layout matters. Trace routing, ground return paths, and where the decoupling caps go can decide whether you see a clean muscle signal or a screen full of 60 Hz noise.</p>
+
+    <figure><div class="frame"><img src="../assets/emg-pcb.png" alt="PCB layout of the EMG acquisition module" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'todo',textContent:'Add image: ../assets/emg-pcb.png'}))"></div><figcaption>PCB layout.</figcaption></figure>
+
+    <h2>Status and Takeaways</h2>
+    <p>The board is designed and assembled. Next up is bench testing the analog front end, followed by the ESP32 firmware to capture and stream the signal. I'll update this page with live recordings at rest and during contraction once that's done.</p>
+    <p>Working through each stage, especially input protection, stimulation blanking, and keeping analog and digital separate, taught me how much each design choice affects the final signal.</p>
+
+    <h2>What I'd Do Next</h2>
+    <p>I'd add more channels, improve shielding and grounding to lower the noise floor, and use the signal to drive something physical, like a gripper that mirrors the motion of your hand.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div>&copy; 2026 Pranava Karthekeyan Ponvinayagan &middot; Electrical Engineering @ Georgia Tech</div>
+    <div>
+      <a href="mailto:pponvinayagan3@gatech.edu">Email</a>
+      <a href="https://www.linkedin.com/in/pranava-ponvinayagan/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/PranavaKP30" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
